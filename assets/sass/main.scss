@@ -17,11 +17,11 @@
 @import "layout/logo"; //Import a _navigation.scss file.
 @import "layout/footer"; //Import a _footer.scss file.
 @import "layout/navigation"; //Import a _navigation.scss file.
-
+@import "layout/background"; //Import a _navigation.scss file.
 /* -------------------- Pages Files -------------------- */
 @import "pages/home"; //Import a _home.scss file.
-@import "pages/about"; //Import a _home.scss file.
-@import "pages/portafolio"; //Import a _home.scss file.
-@import "pages/services"; //Import a _home.scss file.
-@import "pages/quiz"; //Import a _home.scss file.
+@import "pages/about"; //Import a _about.scss file.
+@import "pages/contact"; //Import a _contact.scss file.
+@import "pages/services"; //Import a _services.scss file.
+//@import "pages/quiz"; //Import a _home.scss file.
 

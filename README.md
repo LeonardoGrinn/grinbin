@@ -1,2 +1,0 @@
-# grinbin
-grinbin website

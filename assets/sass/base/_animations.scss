@@ -66,3 +66,46 @@
    //left: 0;
    opacity: 0;
  }
+
+ /* ============= H O M E ============= */
+ @keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+    opacity: 0;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes showLogo {
+  from {
+    //margin-left: -100%;
+    //width: 70%;
+    opacity: 0;
+  }
+
+  to {
+    //margin-left: 0%;
+    //width: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes showArrow {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

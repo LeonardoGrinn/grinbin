@@ -1,23 +1,58 @@
 .contact {
-    width: 100vw;
-    overflow-x: hidden;
-    height: 100vh;
-    overflow-y: none;
-    background-color: $color-black;
+    /* Display content over background */
+    @include overBackground;
 
-    h1 {
-        color: $color-white;
-        text-align: center;
-        padding-top: 1rem;
+    /* Content position */
+    @include positionContent;
 
-        @include respond(phone) {
-            padding-top: 10vh;
-            margin-bottom: 5vh;
+    &__textContainer {
+
+        display: grid;
+        grid-template-rows: 25vh 1fr 25vh;
+        padding-right: 10vw; 
+
+        h3 {
+            font-weight: 100;
+            color: $color-tertiary;
+            font-size: 10rem;
+
+            animation-duration: 5s;
+            animation-delay: 0.5s; 
+            animation-name: showLogo;
         }
-    }
 
-    @include respond(phone) {
-        //max-height: 100vh;
-        overflow-y: hidden !important;
+        p {
+            font-size: 1.8rem;
+            color: $color-tertiary;
+            font-weight: 300;
+
+            animation-duration: 5s;
+            animation-delay: 0.5s; 
+            animation-name: showLogo;
+
+            a {
+                color: $color-primary;
+                text-decoration: underline;
+            }
+        }
+
+        
+
+        &-arrow-container {
+            display: flex;
+            justify-content: left;
+            padding-right: 10vw; 
+            margin-top: 5rem;
+            opacity: 0;
+
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-delay: 2s; 
+            animation-name: showArrow;
+        } 
+
+        &-arrow {
+            @include arrowButton;
+        }
     }
 }

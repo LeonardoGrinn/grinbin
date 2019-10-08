@@ -1,10 +1,14 @@
 /* -------------------- Abstracts Files -------------------- */
+/* Content over the backgorund */
+/* Content Position*/
+/* Arrow Buttons */
 /* Layout logo position */
 /* Fix tilde weird behavior */
 /* Margin Heading top */
 /*************** M E D I A  Q U E R I E S ****************/
 /* -------------------- Base Files -------------------- */
 /* ************* G E N E R A L ************* */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,100");
 *,
 *::after,
 *::before {
@@ -137,7 +141,7 @@ body {
     */ }
 
 ::selection {
-  background-color: #9a3324;
+  background-color: #007DBA;
   color: #fff; }
 
 /* Full section view */
@@ -190,6 +194,31 @@ section[back-img] {
 .view-slide-in.ng-leave {
   opacity: 0; }
 
+/* ============= H O M E ============= */
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+    opacity: 0; }
+  to {
+    margin-left: 0%;
+    width: 100%;
+    opacity: 1; } }
+
+@keyframes showLogo {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes showArrow {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 /* ==================================
 //////////// Family-fonts ///////////
 ================================== */
@@ -204,14 +233,14 @@ section[back-img] {
   src: url('../fonts/centuryGothicBold.otf') format('opentype');
 }*/
 body {
-  font-family: "Avenir Book", sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
   color: #000; }
 
 .heading-primary {
-  font-family: 'Avenir Book', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 6.5rem;
   letter-spacing: 2vw;
   text-transform: uppercase;
@@ -609,7 +638,7 @@ body {
     */ }
 
 .ui-icons {
-  background-color: rgba(154, 51, 36, 0.5);
+  background-color: rgba(0, 125, 186, 0.5);
   transition: all 0.2s ease;
   cursor: pointer;
   /*
@@ -640,7 +669,7 @@ body {
     */ }
 
 .ui-icons:hover {
-  background-color: #9a3324; }
+  background-color: #007dba; }
 
 .arrow {
   width: 2vw;
@@ -1743,7 +1772,7 @@ button {
       color: #777;
       transform: translate(-2rem, -1rem); }
     .nav li .down {
-      color: #9a3324;
+      color: #007DBA;
       transform: translate(2rem, 4.5rem);
       opacity: 0; }
     .nav li a {
@@ -1844,7 +1873,7 @@ button {
     .nav li:hover .down, .nav li.active .down {
       opacity: 1; }
     .nav li:hover a, .nav li.active a {
-      color: #9a3324; }
+      color: #007DBA; }
 
 /* Orientation-dependent styles for the content of the menu */
 .nav-vertical {
@@ -1992,278 +2021,206 @@ canvas {
 
 /* -------------------- Pages Files -------------------- */
 .home {
+  /* Display content over background */
   z-index: 2000;
   position: fixed;
-  top: 0;
-  left: 0;
   overflow: hidden;
   width: 100vw;
-  height: 100vh; }
-
-.about-us {
-  /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
-  .about-us[back-img] {
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-color: #F4EFDD;
-    /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
-  .about-us__info {
+  height: 100vh;
+  /* Content position */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-right: 25vw;
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .home__logoContainer {
+    z-index: 2000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-duration: 2s;
+    animation-name: showLogo; }
+  .home__logo {
+    width: 30vw; }
+  .home__textContainer {
     display: grid;
-    grid-template-columns: 1.1fr 2fr 1.1fr;
-    /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
-    .about-us__info h1 {
-      text-align: center;
-      margin-top: 5rem; }
-    .about-us__info p {
+    grid-template-rows: repeat(3, 1fr); }
+    .home__textContainer h3 {
+      font-weight: 100;
+      color: #165B7E;
+      font-size: 10rem;
+      animation-duration: 2.5s;
+      animation-delay: 0.5s;
+      animation-name: slidein; }
+    .home__textContainer span {
+      font-weight: 100;
+      color: #fff;
+      font-size: 6rem;
+      transform: translateY(-0.5rem); }
+    .home__textContainer-arrow {
       margin-top: 5rem;
-      font-size: 2rem;
-      letter-spacing: .1rem;
-      /*
+      width: 7rem;
+      height: 7rem;
+      background-color: #007DBA;
+      margin-left: 20rem;
+      border-radius: 100%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all ease 0.3s;
+      opacity: 0;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-delay: 2s;
+      animation-name: showArrow; }
+      .home__textContainer-arrow span {
+        font-weight: 100;
+        color: #fff;
+        font-size: 6rem;
+        transform: translateY(-0.5rem); }
+      .home__textContainer-arrow:hover {
+        background-color: #41B6E6;
+        opacity: 1; }
+        .home__textContainer-arrow:hover span {
+          color: #165B7E; }
+      .home__textContainer-arrow:hover {
+        animation: step-end; }
 
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */
-      /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
-      .about-us__info p span {
-        font-size: 2.2rem;
-        font-weight: 300;
-        /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */
-        /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
+.about {
+  /* Display content over background */
+  z-index: 2000;
+  position: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  /* Content position */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-right: 25vw;
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .about__textContainer {
+    display: grid;
+    grid-template-rows: 25vh 1fr 25vh;
+    padding-right: 10vw; }
+    .about__textContainer h3 {
+      font-weight: 100;
+      color: #165B7E;
+      font-size: 10rem;
+      animation-duration: 5s;
+      animation-delay: 0.5s;
+      animation-name: showLogo; }
+    .about__textContainer p {
+      font-size: 1.8rem;
+      color: #165B7E;
+      font-weight: 300;
+      animation-duration: 5s;
+      animation-delay: 0.5s;
+      animation-name: showLogo; }
+    .about__textContainer-arrow-container {
+      display: flex;
+      justify-content: left;
+      padding-right: 10vw;
+      margin-top: 5rem;
+      animation-duration: 2s;
+      animation-delay: 1s;
+      animation-name: slidein; }
+    .about__textContainer-arrow {
+      width: 7rem;
+      height: 7rem;
+      background-color: #007DBA;
+      margin-left: 20rem;
+      border-radius: 100%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all ease 0.3s; }
+      .about__textContainer-arrow span {
+        font-weight: 100;
+        color: #fff;
+        font-size: 6rem;
+        transform: translateY(-0.5rem); }
+      .about__textContainer-arrow:hover {
+        background-color: #41B6E6;
+        opacity: 1; }
+        .about__textContainer-arrow:hover span {
+          color: #165B7E; }
 
 .contact {
+  /* Display content over background */
+  z-index: 2000;
+  position: fixed;
+  overflow: hidden;
   width: 100vw;
-  overflow-x: hidden;
   height: 100vh;
-  overflow-y: none;
-  background-color: #000;
-  /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
-  .contact h1 {
-    color: #fff;
-    text-align: center;
-    padding-top: 1rem;
-    /*
-
-    @if $breakpoint == iphone-x {
-        @media only screen and (max-width: 24em) and (min-height: 50em) {@content}; //600px
-    }
-
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
-    }
-
-    @if $breakpoint == tab-port {
-        @media only screen and (max-width: 56.25em) { @content };     //900px
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 75em) { @content };    //1200px
-    }
-
-    @if $breakpoint == md-desktop {
-        @media only screen and (max-width: 85.3em) { @content };    //1200px
-    }
-
-    @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
-    }
-    */ }
+  /* Content position */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-right: 25vw;
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .contact__textContainer {
+    display: grid;
+    grid-template-rows: 25vh 1fr 25vh;
+    padding-right: 10vw; }
+    .contact__textContainer h3 {
+      font-weight: 100;
+      color: #165B7E;
+      font-size: 10rem;
+      animation-duration: 5s;
+      animation-delay: 0.5s;
+      animation-name: showLogo; }
+    .contact__textContainer p {
+      font-size: 1.8rem;
+      color: #165B7E;
+      font-weight: 300;
+      animation-duration: 5s;
+      animation-delay: 0.5s;
+      animation-name: showLogo; }
+      .contact__textContainer p a {
+        color: #007DBA;
+        text-decoration: underline; }
+    .contact__textContainer-arrow-container {
+      display: flex;
+      justify-content: left;
+      padding-right: 10vw;
+      margin-top: 5rem;
+      opacity: 0;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-delay: 2s;
+      animation-name: showArrow; }
+    .contact__textContainer-arrow {
+      width: 7rem;
+      height: 7rem;
+      background-color: #007DBA;
+      margin-left: 20rem;
+      border-radius: 100%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all ease 0.3s; }
+      .contact__textContainer-arrow span {
+        font-weight: 100;
+        color: #fff;
+        font-size: 6rem;
+        transform: translateY(-0.5rem); }
+      .contact__textContainer-arrow:hover {
+        background-color: #41B6E6;
+        opacity: 1; }
+        .contact__textContainer-arrow:hover span {
+          color: #165B7E; }
 
 .contact {
   /*
